@@ -42,3 +42,6 @@ tramp
 # Windows
 Thumbs.db
 Desktop.ini
+
+/dominion/media
+/dominion/static
