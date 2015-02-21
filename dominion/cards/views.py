@@ -13,6 +13,7 @@ class CardList(ListView):
 class CardDetail(DetailView):
     model = Card
 
+    # TODO: Should really be using slug fields here.
     def get_object(self):
         if self.kwargs.get('card_set', None) and self.kwargs.get('card_name', None):
             return get_object_or_404(
