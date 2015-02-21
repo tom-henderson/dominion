@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+        {% regroup cards by card_set as grouped_cards %}
+
+        {% for group in grouped_cards %}
+
+        <h3>{{ group.grouper }}</h3>
+
+        <ul>
+            {% for card in group.list %}
+            <li><a href="{% url 'card_detail' card.id %}">{{card.name}}</a></li>
+            {% endfor %}
+        </ul>
+
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

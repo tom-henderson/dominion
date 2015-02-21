@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row top-buffer">
+        <div class="col-sm-6">
+            <img class="img-responsive" src="{{MEDIA_URL}}{{card.image}}">
+        </div>
+        <div class="col-sm-6">
+
+        <h3>{{ card.name }}</h3>
+
+        <p>
+            <strong>Set:</strong> {{card.card_set}}<br>
+            <strong>Type:</strong> {{card.card_type}}<br>
+            <strong>Cost:</strong> {{card.cost}}<br>
+            <strong>Rules:</strong> {{card.rules}}<br>
+            <strong>Wiki Page:</strong> <a href="{{card.wiki_link}}">{{card.name}}</a>
+            <br>
+        </p>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

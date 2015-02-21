@@ -53,6 +53,13 @@ class Card(models.Model):
 
         return "${}".format(self.cost_gold)
 
+    @property
+    def wiki_link(self):
+        # eg: http://wiki.dominionstrategy.com/index.php/Bag_of_Gold
+        return "http://wiki.dominionstrategy.com/index.php/{}".format(
+            self.name.replace(" ", "_")
+        )
+
     def __unicode__(self):
         return "{} ({}) [{}]".format(
             self.name,
