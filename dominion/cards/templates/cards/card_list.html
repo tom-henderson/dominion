@@ -14,7 +14,7 @@
 
         <ul>
             {% for card in group.list %}
-            <li><a href="{% url 'card_detail' card.id %}">{{card.name}}</a></li>
+            <li><a href="{% url 'named_card_detail' card_set=card.card_set card_name=card.name %}">{{card.name}}</a></li>
             {% endfor %}
         </ul>
 
