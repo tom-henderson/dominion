@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{ deck.name }}</h3>
+        </div>
+    </div>
+
+    {% regroup deck.cards.all by card_set as grouped_cards %}
+
+    <div class="row">
+        {% for group in grouped_cards %}
+            <div class="col-md-3 col-sm-4">
+
+            <ul>
+                <li>{{ group.grouper }}</li>
+                <ul>
+                    {% for card in group.list %}
+                    <li><a href="{% url 'named_card_detail' card_set=card.card_set card_name=card.name %}">{{ card.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </ul>
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% for card in deck.cards.all %}
+            <div class="col-md-3 col-sm-4 top-buffer">
+                <a href="{% url 'named_card_detail' card_set=card.card_set card_name=card.name %}"><img class="img-responsive" src="{{MEDIA_URL}}{{card.image}}"></a>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

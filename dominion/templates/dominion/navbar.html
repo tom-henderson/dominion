@@ -13,7 +13,13 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+
+
         <li><a href="{% url 'card_list' %}">Cards</a>
+        <li><a href="{% url 'deck_list' %}">Decks</a>
+
+
+
       </ul>
       {% if user.is_authenticated %}
       <ul class="nav navbar-nav pull-right">
