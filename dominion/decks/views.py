@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, FormView
 
+from cards.models import CardSet
 from .models import Deck
 from .forms import DeckFactoryForm
 
@@ -17,8 +18,8 @@ class DeckDetail(DetailView):
 
 class DeckFactory(FormView):
     form_class = DeckFactoryForm
-    success_url = '/'
     template_name = 'form_view.html'
+    success_url = '/decks'
 
     def get_context_data(self, **kwargs):
         context = super(DeckFactory, self).get_context_data(**kwargs)
