@@ -27,6 +27,11 @@ class CardAdmin(admin.ModelAdmin):
         'card_set',
         'card_type',
     )
+    search_fields = (
+        'name',
+        'card_set__name',
+        'card_type__name',
+    )
 
     actions = ['fetch_image']
 
