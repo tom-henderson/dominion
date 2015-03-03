@@ -1,4 +1,4 @@
-{% extends "dominion/base.html" %}
+{% extends "base.html" %}
 
 {% load staticfiles %}
 {% load form_extras %}
@@ -7,8 +7,8 @@
 <div class="container" id="item-list">
   <div class="row">
     <div class="col-xs-12">
-      <h1>dominion</h1>
-      <h3>Edit {{ form.instance }}</h3>
+      <h1>{{ title }}</h1>
+      <h3>{{ subtitle }}</h3>
     </div>
   </div>
 </div>
@@ -31,7 +31,7 @@
         </label>
 
         <div class="col-xs-6">
-          {% if field|field_type != "CheckboxInput" %}
+          {% if field|field_type != "CheckboxInput" and field|field_type != "CheckboxSelectMultiple" %}
             {{ field }}
           {% else %}
             <ul class="list-unstyled">
